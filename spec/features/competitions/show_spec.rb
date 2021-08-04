@@ -16,6 +16,15 @@ RSpec.describe 'The Competition Show Page' do
     @team_4 = @competition_4.teams.create!(nickname: "Bad To The Bone", hometown: "Dallas")
     @team_5 = Team.create!(nickname: "Ruff Around The Edges", hometown: "Jackson")
 
+    @player_1 = @team_1.players.create!(name: "Rocky", age: 7)
+    @player_2 = @team_1.players.create!(name: "Fido", age: 2)
+    @player_3 = @team_2.players.create!(name: "Champ", age: 3)
+    @player_4 = @team_2.players.create!(name: "Duke", age: 17)
+    @player_5 = @team_3.players.create!(name: "Coop", age: 8)
+    @player_6 = @team_3.players.create!(name: "Jet", age: 10)
+    @player_7 = @team_4.players.create!(name: "Gerty", age: 5)
+    @player_8 = @team_4.players.create!(name: "Rosie", age: 11)
+
     visit "/competitions/#{@competition_4.id}"
   end
 
@@ -38,6 +47,7 @@ RSpec.describe 'The Competition Show Page' do
     expect(page).to_not have_content(@team_5.hometown)
   end
 
-  xit 'displays the average age of all players in the competition' do
+  it 'displays the average age of all players in the competition' do
+    expect(page).to have_content(7.88)
   end
 end
