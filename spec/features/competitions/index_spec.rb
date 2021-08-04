@@ -27,5 +27,8 @@ RSpec.describe 'The Competition Index Page' do
     expect(page).to have_link(@competition_2.name)
     expect(page).to have_link(@competition_3.name)
     expect(page).to have_link(@competition_4.name)
+
+    click_link "The Goodest Boy"
+    expect(current_path).to eq("/competitions/#{@competition_4.id}")
   end
 end

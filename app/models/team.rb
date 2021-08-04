@@ -4,6 +4,6 @@ class Team < ApplicationRecord
   has_many :players
 
   def self.average_age
-    joins(:players).average(:age).round(2)
+    joins(:players).average(:age)
   end
 end
