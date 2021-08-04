@@ -1,5 +1,5 @@
 <h1>Competitions</h1>
 <br>
 <% @competitions.each do |comp| %>
-  <h2><%= comp.name %></h2>
+  <h2><%= link_to comp.name, "/competitions/#{comp.id}" %></h2>
 <% end %>
